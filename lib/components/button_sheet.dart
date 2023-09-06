@@ -1,9 +1,8 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tech_news/components/components.dart';
 import 'package:tech_news/utils/text.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void showMyBottomSheet(
     BuildContext context, String title, String description, imageurl, url) {
@@ -20,20 +19,18 @@ void showMyBottomSheet(
           imageurl: imageurl,
           title: title,
           description: description,
-        ); // returns your BottomSheet widget
+        );
       });
 }
 
-_launchURL(String url) async {
-  if (await canLaunch(url)) {
-    await launch(url);
+Future<void> _launchURL(String url) async {
+  if (await launchUrlString(url)) {
+    await canLaunchUrlString(url);
   } else {
     throw 'Could not launch $url';
   }
 }
 
-//your bottom sheet widget class
-//you can put your things here, like buttons, callbacks and layout
 class MyBottomSheetLayout extends StatelessWidget {
   final String title, description, imageurl, url;
 
@@ -52,31 +49,27 @@ class MyBottomSheetLayout extends StatelessWidget {
               topLeft: Radius.circular(20), topRight: Radius.circular(20))),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           BottomSheetImage(imageurl: imageurl, title: title),
           Container(
               padding: const EdgeInsets.all(10),
               child: ModifiedText(
                   text: description, size: 16, color: Colors.white)),
-          Container(
-            padding: const EdgeInsets.all(10),
-            child: RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                      text: 'Read Full Article',
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          _launchURL(url);
-                        },
-                      style: GoogleFonts.lato(
-                        color: Colors.blue.shade400,
-                      )),
-                ],
+          GestureDetector(
+            onTap: () {
+              _launchURL(url);
+            },
+            child: Center(
+              child: Container(
+                padding: const EdgeInsets.all(10),
+                child: Text('Read Full Article',
+                    style: GoogleFonts.lato(
+                      color: Colors.yellow,
+                    )),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

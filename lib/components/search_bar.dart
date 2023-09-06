@@ -23,8 +23,7 @@ class _MySearchBarState extends State<MySearchBar> {
             margin: const EdgeInsets.all(10),
             padding: const EdgeInsets.only(left: 20),
             decoration: BoxDecoration(
-                color: AppColors.darkgrey,
-                borderRadius: BorderRadius.circular(50)),
+                color: Colors.white30, borderRadius: BorderRadius.circular(50)),
             child: Center(
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -35,7 +34,7 @@ class _MySearchBarState extends State<MySearchBar> {
                     child: TextField(
                   controller: MySearchBar.searchcontroller,
                   decoration: InputDecoration(
-                      hintText: 'Search a Keyword or a Phrase',
+                      hintText: 'Search your news !',
                       hintStyle: GoogleFonts.lato(),
                       border: InputBorder.none),
                 ))
@@ -49,13 +48,14 @@ class _MySearchBarState extends State<MySearchBar> {
             fetchnews();
           },
           child: Container(
-            width: 45,
-            height: 45,
+            width: 50,
+            height: 50,
             decoration: BoxDecoration(
                 color: AppColors.darkgrey, shape: BoxShape.circle),
             child: Icon(
-              Icons.search,
+              Icons.search_rounded,
               color: AppColors.white,
+              size: 30,
             ),
           ),
         ),

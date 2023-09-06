@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:tech_news/components/button_sheet.dart';
 import 'package:tech_news/utils/colors.dart';
 import 'package:tech_news/utils/text.dart';
@@ -45,7 +46,18 @@ class NewsBox extends StatelessWidget {
                         color: Colors.yellow),
                   ),
                   placeholder: (context, url) =>
-                      CircularProgressIndicator(color: AppColors.primary),
+                      const SimpleCircularProgressBar(
+                    size: 60,
+                    progressColors: [
+                      Colors.yellow,
+                      Colors.blue,
+                      Colors.green,
+                      Colors.red,
+                      Colors.purpleAccent
+                    ],
+                    backColor: Colors.white38,
+                    animationDuration: 2,
+                  ),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
                 const SizedBox(width: 8),

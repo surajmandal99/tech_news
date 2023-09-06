@@ -11,7 +11,7 @@ class DividerWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 20, right: 20),
       child: Divider(
-        color: AppColors.lightwhite,
+        color: AppColors.yellowish,
       ),
     );
   }

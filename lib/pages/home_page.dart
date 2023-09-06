@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 import 'package:tech_news/components/appbar.dart';
 import 'package:tech_news/components/news_box.dart';
 import 'package:tech_news/components/search_bar.dart';
@@ -57,10 +58,17 @@ class _HomePageState extends State<HomePage> {
                         return Text("${snapshot.error}");
                       }
 
-                      // By default, show a loading spinner.
-                      return Center(
-                          child: CircularProgressIndicator(
-                        color: AppColors.primary,
+                      return const Center(
+                          child: SimpleCircularProgressBar(
+                        progressColors: [
+                          Colors.yellow,
+                          Colors.blue,
+                          Colors.green,
+                          Colors.red,
+                          Colors.purpleAccent
+                        ],
+                        backColor: Colors.white38,
+                        animationDuration: 1,
                       ));
                     },
                   )),

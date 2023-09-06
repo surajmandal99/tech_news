@@ -10,7 +10,6 @@ Future<List> fetchnews() async {
         'https://newsapi.org/v2/top-headlines?country=in&category=technology&pageSize=99&apiKey=${Key.key}&q=${MySearchBar.searchcontroller.text}'),
   );
   Map result = jsonDecode(response.body);
-  print('Fetched');
 
   return (result['articles']);
 }
