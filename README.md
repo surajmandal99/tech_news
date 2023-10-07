@@ -1,6 +1,7 @@
 # tech_news
 
-A new Flutter project.
+ # Tech-news app is basically used for showing the latest technologies update by using api and then the data is represented in the UI.
+ 
 
 
 ![Screenshot_2023-09-14-19-11-47-61_55568beea8ade37df19ab3a3bb2cf27e](https://github.com/surajmandal99/tech_news/assets/105273927/be87445a-e9e6-48ff-aefe-bb0f93020dce)
