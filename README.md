@@ -1,6 +1,9 @@
 # tech_news
 
  # Tech-news app is basically used for showing the latest technologies update by using api and then the data is represented in the UI.
+
+ # This app has the cool animation while fetching the data from the server.
+ # 
  
 
 
